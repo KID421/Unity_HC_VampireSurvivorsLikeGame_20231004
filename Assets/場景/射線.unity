@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerTarget:
     serializedVersion: 2
-    m_Bits: 1048576
+    m_Bits: 5242880
 --- !u!4 &647489792
 Transform:
   m_ObjectHideFlags: 0
