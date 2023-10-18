@@ -10,7 +10,7 @@ namespace KID
     {
         [Header("血量"), Range(0, 10000)]
         public float hp;
-        [Header("移動速度"), Range(0, 10)]
+        [Header("移動速度"), Range(0, 100)]
         public float speed;
     }
 }

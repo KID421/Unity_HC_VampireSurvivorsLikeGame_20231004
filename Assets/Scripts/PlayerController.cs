@@ -8,8 +8,8 @@ namespace KID.TopDwon
     public class PlayerController : MonoBehaviour
     {
         #region 資料
-        [SerializeField, Header("移動速度"), Range(0, 50)]
-        private float speed = 3.5f;
+        [SerializeField, Header("角色資料")]
+        private DataBasic data;
 
         private string parRun = "開關跑步";
         private Animator ani;
@@ -40,7 +40,7 @@ namespace KID.TopDwon
         /// </summary>
         private void Move()
         {
-            rig.velocity = new Vector2(inputHorizontal, inputVertical) * speed;
+            rig.velocity = new Vector2(inputHorizontal, inputVertical) * data.speed;
         }
 
         /// <summary>
