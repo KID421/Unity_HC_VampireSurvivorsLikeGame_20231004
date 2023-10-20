@@ -10,6 +10,8 @@ namespace KID
         #region 資料
         [SerializeField, Header("角色資料")]
         private DataEnemy data;
+        [SerializeField, Header("攻擊範圍位移")]
+        private Vector3 attackRangeOffset;
 
         private Transform pointPlayer;
         private string namePlayer = "女學生";
@@ -21,9 +23,23 @@ namespace KID
             pointPlayer = GameObject.Find(namePlayer).transform;
         }
 
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = new Color(0.3f, 0.3f, 0.8f, 0.5f);
+            Gizmos.DrawSphere(transform.position + attackRangeOffset, data.attackRange);
+        }
+
         private void Update()
         {
-            Move();
+            if (Vector2.Distance(transform.position, pointPlayer.position) < data.attackRange)
+            {
+                
+            }
+            else
+            {
+                Move();
+            }
+
             Flip();
         }
         #endregion
