@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 namespace KID
 {
@@ -15,12 +16,17 @@ namespace KID
 
         private Transform pointPlayer;
         private string namePlayer = "女學生";
+        private Animator ani;
+        private string parAttack = "觸發攻擊";
+        private string parIdle = "開關等待";
+        private bool canAttack = true;
         #endregion
 
         #region 事件
         private void Awake()
         {
             pointPlayer = GameObject.Find(namePlayer).transform;
+            ani = GetComponent<Animator>();
         }
 
         private void OnDrawGizmos()
@@ -31,9 +37,9 @@ namespace KID
 
         private void Update()
         {
-            if (Vector2.Distance(transform.position, pointPlayer.position) < data.attackRange)
+            if (Vector2.Distance(transform.position + attackRangeOffset, pointPlayer.position) < data.attackRange)
             {
-                
+                Attack();
             }
             else
             {
@@ -45,6 +51,28 @@ namespace KID
         #endregion
 
         #region 方法
+        /// <summary>
+        /// 攻擊
+        /// </summary>
+        private void Attack()
+        {
+            if (canAttack)
+            {
+                StartCoroutine(AttackBehaviour());  
+            }
+        }
+
+        private IEnumerator AttackBehaviour()
+        {
+            canAttack = false;
+            ani.SetTrigger(parAttack);
+            ani.SetBool(parIdle, true);
+            yield return new WaitForSeconds(data.attackSendTime);
+            print("造成玩家傷害");
+            yield return new WaitForSeconds(data.attackEndWaitTime);
+            canAttack = true;
+        }
+
         /// <summary>
         /// 移動
         /// </summary>

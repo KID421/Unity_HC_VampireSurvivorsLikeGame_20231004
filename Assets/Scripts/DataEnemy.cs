@@ -14,7 +14,11 @@ namespace KID
         public GameObject expPrefab;
         [Header("攻擊力"), Range(0, 10000)]
         public float attack;
-        [Header("攻擊範圍"), Range(0, 100)]
+        [Header("攻擊範圍"), Range(0, 10)]
         public float attackRange;
+        [Header("攻擊傳送時間"), Range(0, 10)]
+        public float attackSendTime;
+        [Header("攻擊結束等待時間"), Range(0, 10)]
+        public float attackEndWaitTime;
     }
 }
