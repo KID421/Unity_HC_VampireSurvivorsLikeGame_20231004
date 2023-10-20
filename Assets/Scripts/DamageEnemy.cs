@@ -8,6 +8,7 @@ namespace KID
     public class DamageEnemy : DamageSystem
     {
         private string playerWeaponName = "武器";
+        private DataEnemy dataEnemy => (DataEnemy)data;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -15,6 +16,18 @@ namespace KID
             {
                 Damage(50);
             }
+        }
+
+        protected override void Dead()
+        {
+            base.Dead();
+
+            if (Random.value <= dataEnemy.expProbability)
+            {
+                Instantiate(dataEnemy.expPrefab, transform.position, Quaternion.identity);
+            }
+
+            Destroy(gameObject);
         }
     }
 }

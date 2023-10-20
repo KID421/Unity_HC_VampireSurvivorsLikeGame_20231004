@@ -8,7 +8,7 @@ namespace KID
     public class DamageSystem : MonoBehaviour
     {
         [SerializeField, Header("角色資料")]
-        private DataBasic data;
+        protected DataBasic data;
         [SerializeField, Header("傷害值預製物")]
         private GameObject prefabDamage;
 
@@ -35,7 +35,7 @@ namespace KID
         /// <summary>
         /// 死亡
         /// </summary>
-        private void Dead()
+        protected virtual void Dead()
         {
 
         }

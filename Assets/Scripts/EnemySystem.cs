@@ -9,7 +9,7 @@ namespace KID
     {
         #region 資料
         [SerializeField, Header("角色資料")]
-        private DataBasic data;
+        private DataEnemy data;
 
         private Transform pointPlayer;
         private string namePlayer = "女學生";
