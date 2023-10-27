@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 namespace KID
 {
@@ -11,23 +12,28 @@ namespace KID
         protected DataBasic data;
         [SerializeField, Header("傷害值預製物")]
         private GameObject prefabDamage;
+        [SerializeField, Header("傷害值位移")]
+        private Vector3 damageOffset;
 
-        private float hp;
+        protected float hp;
+        protected float hpMax;
 
         private void Awake()
         {
             hp = data.hp;
+            hpMax = hp;
         }
 
         /// <summary>
         /// 受傷
         /// </summary>
         /// <param name="damage">受到的傷害值</param>
-        protected void Damage(float damage)
+        public virtual void Damage(float damage)
         {
             hp -= damage;
-            GameObject tempDamage = Instantiate(prefabDamage, transform.position, Quaternion.identity);
+            GameObject tempDamage = Instantiate(prefabDamage, transform.position + damageOffset, Quaternion.identity);
             Destroy(tempDamage, 1);
+            tempDamage.transform.GetChild(0).GetComponent<TextMeshPro>().text = damage.ToString();
 
             if (hp <= 0) Dead();
         }

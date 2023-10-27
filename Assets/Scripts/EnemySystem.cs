@@ -16,6 +16,7 @@ namespace KID
 
         private Transform pointPlayer;
         private string namePlayer = "女學生";
+        private DamagePlayer damagePlayer;
         private Animator ani;
         private string parAttack = "觸發攻擊";
         private string parIdle = "開關等待";
@@ -26,6 +27,7 @@ namespace KID
         private void Awake()
         {
             pointPlayer = GameObject.Find(namePlayer).transform;
+            damagePlayer = pointPlayer.GetComponent<DamagePlayer>();
             ani = GetComponent<Animator>();
         }
 
@@ -68,7 +70,7 @@ namespace KID
             ani.SetTrigger(parAttack);
             ani.SetBool(parIdle, true);
             yield return new WaitForSeconds(data.attackSendTime);
-            print("造成玩家傷害");
+            damagePlayer.Damage(data.attack);
             yield return new WaitForSeconds(data.attackEndWaitTime);
             canAttack = true;
         }
