@@ -26,6 +26,11 @@ namespace KID.TopDwon
             rig = GetComponent<Rigidbody2D>();
         }
 
+        private void OnDisable()
+        {
+            rig.velocity = Vector3.zero;
+        }
+
         private void Update()
         {
             Move();

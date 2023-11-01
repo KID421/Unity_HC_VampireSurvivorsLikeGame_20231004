@@ -18,7 +18,7 @@ namespace KID
         protected float hp;
         protected float hpMax;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             hp = data.hp;
             hpMax = hp;

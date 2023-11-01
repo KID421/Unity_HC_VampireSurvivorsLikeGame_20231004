@@ -1,16 +1,16 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¸òÀHª±®a
+    /// è·Ÿéš¨ç©å®¶
     /// </summary>
     public class FollowPlayer : MonoBehaviour
     {
-        [SerializeField, Header("¦ì²¾")]
+        [SerializeField, Header("ä½ç§»")]
         private Vector3 offset;
 
-        private string namePlayer = "¤k¾Ç¥Í";
+        private string namePlayer = "å¥³å­¸ç”Ÿ";
         private Transform pointPlayer;
 
         private void Awake()

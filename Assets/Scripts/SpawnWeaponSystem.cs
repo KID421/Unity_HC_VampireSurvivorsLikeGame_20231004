@@ -19,6 +19,11 @@ namespace KID.TopDwon
             InvokeRepeating("SpawnWeapon", 0, interval);
         }
 
+        private void OnDisable()
+        {
+            CancelInvoke("SpawnWeapon");
+        }
+
         /// <summary>
         /// 生成武器
         /// </summary>
