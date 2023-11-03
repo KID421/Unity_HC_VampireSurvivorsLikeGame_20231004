@@ -31,6 +31,7 @@ namespace KID.TopDwon
         {
             GameObject tempWeapon = Instantiate(prefabWeapon, transform.position, Quaternion.identity);
             tempWeapon.GetComponent<Rigidbody2D>().AddForce(transform.root.right * firePower.x + transform.root.up * firePower.y);
+            tempWeapon.GetComponent<RotateObject>().direction = -(int)transform.root.right.x;
         }
     }
 }

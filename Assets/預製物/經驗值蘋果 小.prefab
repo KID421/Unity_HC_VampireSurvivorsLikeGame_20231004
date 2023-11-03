@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8041536579700631719}
   - component: {fileID: 1260271292092232398}
   - component: {fileID: 24280334499697717}
+  - component: {fileID: 8418736758478046294}
   m_Layer: 8
   m_Name: "\u7D93\u9A57\u503C\u860B\u679C \u5C0F"
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1260271292092232398
 SpriteRenderer:
@@ -120,3 +121,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!114 &8418736758478046294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5598794372613792981}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4712dabbf7e8b614cb7832a445e11af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3.5
+  eatDistance: 2
+  exp: 30

@@ -9,6 +9,10 @@ namespace KID
     {
         [SerializeField, Header("移動速度"), Range(0, 10)]
         private float speed = 3.5f;
+        [SerializeField, Header("吃掉經驗值距離"), Range(0, 10)]
+        private float eatDistance = 1.5f;
+        [SerializeField, Header("經驗值"), Range(0, 1000)]
+        private float exp = 30;
 
         private Transform pointPlayer;
         private string namePlayer = "女學生";
@@ -21,6 +25,7 @@ namespace KID
         private void Update()
         {
             Move();
+            EatExp();
         }
 
         /// <summary>
@@ -32,6 +37,20 @@ namespace KID
                 transform.position, 
                 pointPlayer.position + Vector3.up, 
                 speed * Time.deltaTime);
+        }
+
+        /// <summary>
+        /// 吃掉經驗值
+        /// </summary>
+        private void EatExp()
+        {
+            float dis = Vector2.Distance(transform.position, pointPlayer.position + Vector3.up);
+
+            if (dis <= eatDistance)
+            {
+                LevelManager.instance.AddExp(exp);
+                Destroy(gameObject);
+            }
         }
     }
 }
