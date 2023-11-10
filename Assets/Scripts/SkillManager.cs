@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using TMPro;
+using UnityEngine.UI;
 
 namespace KID
 {
@@ -9,6 +13,11 @@ namespace KID
     public class SkillManager : MonoBehaviour
     {
         public static SkillManager instance;
+
+        [SerializeField, Header("全部技能資料")]
+        private DataSkill[] dataSkills;
+
+        private List<DataSkill> randomSkills = new List<DataSkill>();
 
         /// <summary>
         /// 技能介面
@@ -36,6 +45,7 @@ namespace KID
         public void StartFadeInGroupSkill()
         {
             Time.timeScale = 0;
+            RandomSkill();
             StartCoroutine(FadeInGroupSkill());
         }
 
@@ -52,6 +62,36 @@ namespace KID
 
             groupSkill.interactable = true;
             groupSkill.blocksRaycasts = true;
+        }
+
+        /// <summary>
+        /// 隨機技能
+        /// </summary>
+        private void RandomSkill()
+        {
+            randomSkills = dataSkills.Where(x => x.lv < 5).ToList();
+            randomSkills = randomSkills.OrderBy(x => Random.Range(0, 999)).ToList();
+
+            UpdateSkillUI();
+        }
+
+        /// <summary>
+        /// 更新技能介面，技能 1 ~ 3
+        /// </summary>
+        private void UpdateSkillUI()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                DataSkill dataSkill = randomSkills[i];
+                transformSkills[i].Find("技能名稱").GetComponent<TextMeshProUGUI>().text = dataSkill.skillName;
+                transformSkills[i].Find("技能圖片").GetComponent<Image>().sprite = dataSkill.skillPicture;
+                transformSkills[i].Find("技能描述底圖/技能描述").GetComponent<TextMeshProUGUI>().text = dataSkill.skillDescription;
+
+                for (int j = 0; j < dataSkill.lv; j++)
+                {
+                    transformSkills[i].Find($"等級底圖/星星/星星 {(j + 1)}").GetComponent<Image>().color = Color.white;
+                }
+            }
         }
     }
 }
