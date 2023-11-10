@@ -57,6 +57,7 @@ namespace KID
             expNeed = expNeeds[lv - 1];
             imgExp.fillAmount = expCurrent / expNeed;
             textExp.text = $"{expCurrent} / {expNeed}";
+            SkillManager.instance.StartFadeInGroupSkill();
         }
 
         /// <summary>
