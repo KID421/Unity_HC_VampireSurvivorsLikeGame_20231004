@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using TMPro;
-using UnityEngine.UI;
 
 namespace KID
 {
@@ -16,6 +16,8 @@ namespace KID
 
         [SerializeField, Header("全部技能資料")]
         private DataSkill[] dataSkills;
+        [SerializeField, Header("升級技能按鈕")]
+        private Button[] btnSkillUpgrade;
 
         private List<DataSkill> randomSkills = new List<DataSkill>();
 
@@ -37,6 +39,51 @@ namespace KID
             {
                 transformSkills[i] = GameObject.Find($"技能 {(i + 1)}").transform;
             }
+
+            ButtonClickAndUpgradeSkill();
+        }
+
+        /// <summary>
+        /// 還原全部技能為等級 1
+        /// </summary>
+        private void ResetAllSkillToLv1()
+        {
+            GameObject[] objectSkills = GameObject.FindGameObjectsWithTag("升級技能物件");
+
+            for (int i = 0; i < objectSkills.Length; i++)
+            {
+                objectSkills[i].GetComponent<IUpgradeSkill>().ResetToLv1();
+            }
+        }
+
+        /// <summary>
+        /// 按鈕點擊升級技能
+        /// </summary>
+        private void ButtonClickAndUpgradeSkill()
+        {
+            for (int i = 0; i < btnSkillUpgrade.Length; i++)
+            {
+                int index = i;
+                btnSkillUpgrade[i].onClick.AddListener(() =>
+                {
+                    randomSkills[index].Upgrade();
+                    StartCoroutine(UpgradeSkillFlow());
+                });
+            }
+        }
+
+        /// <summary>
+        /// 升級技能流程
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerator UpgradeSkillFlow()
+        {
+            groupSkill.interactable = false;
+            yield return new WaitForSecondsRealtime(0.3f);
+            UpdateSkillUI();
+            yield return new WaitForSecondsRealtime(0.5f);
+            StartCoroutine(FadeGroupSkill(false));
+            Time.timeScale = 1;
         }
 
         /// <summary>
@@ -46,22 +93,24 @@ namespace KID
         {
             Time.timeScale = 0;
             RandomSkill();
-            StartCoroutine(FadeInGroupSkill());
+            StartCoroutine(FadeGroupSkill());
         }
 
         /// <summary>
-        /// 淡入技能介面
+        /// 淡入淡出技能介面
         /// </summary>
-        private IEnumerator FadeInGroupSkill()
+        private IEnumerator FadeGroupSkill(bool fadeIn = true)
         {
+            float increase = fadeIn ? +0.1f : -0.1f;
+
             for (int i = 0; i < 10; i++)
             {
-                groupSkill.alpha += 0.1f;
+                groupSkill.alpha += increase;
                 yield return new WaitForSecondsRealtime(0.05f);
             }
 
-            groupSkill.interactable = true;
-            groupSkill.blocksRaycasts = true;
+            groupSkill.interactable = fadeIn;
+            groupSkill.blocksRaycasts = fadeIn;
         }
 
         /// <summary>
