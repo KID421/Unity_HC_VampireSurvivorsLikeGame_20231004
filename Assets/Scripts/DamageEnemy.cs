@@ -14,7 +14,8 @@ namespace KID
         {
             if (collision.gameObject.name.Contains(playerWeaponName))
             {
-                Damage(50);
+                float damage = collision.gameObject.GetComponent<WeaponObject>().attack;
+                Damage(damage);
             }
         }
 

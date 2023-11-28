@@ -21,6 +21,7 @@ namespace KID
         private string parAttack = "觸發攻擊";
         private string parIdle = "開關等待";
         private bool canAttack = true;
+        private bool attacking;
         #endregion
 
         #region 事件
@@ -67,12 +68,14 @@ namespace KID
         private IEnumerator AttackBehaviour()
         {
             canAttack = false;
+            attacking = true;
             ani.SetTrigger(parAttack);
             ani.SetBool(parIdle, true);
             yield return new WaitForSeconds(data.attackSendTime);
             damagePlayer.Damage(data.attack);
             yield return new WaitForSeconds(data.attackEndWaitTime);
             canAttack = true;
+            attacking = false;
         }
 
         /// <summary>
@@ -80,6 +83,8 @@ namespace KID
         /// </summary>
         private void Move()
         {
+            if (attacking) return;
+            ani.SetBool(parIdle, false);
             transform.position = Vector2.MoveTowards(transform.position, pointPlayer.position, data.speed * Time.deltaTime);
         }
 

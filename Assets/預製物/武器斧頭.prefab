@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1292063363053031089}
   - component: {fileID: 3582411979262288357}
   - component: {fileID: 8839076990569780728}
+  - component: {fileID: 3442938927860818735}
   m_Layer: 7
   m_Name: "\u6B66\u5668\u65A7\u982D"
   m_TagString: Untagged
@@ -99,7 +100,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 2
   m_GravityScale: 0
@@ -163,3 +164,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 600
   direction: -1
+--- !u!114 &3442938927860818735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6091505294299988555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d76740686b752543b4253196cac402e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: 30

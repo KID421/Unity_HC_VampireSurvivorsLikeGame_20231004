@@ -41,6 +41,7 @@ namespace KID
             }
 
             ButtonClickAndUpgradeSkill();
+            ResetAllSkillToLv1();
         }
 
         /// <summary>

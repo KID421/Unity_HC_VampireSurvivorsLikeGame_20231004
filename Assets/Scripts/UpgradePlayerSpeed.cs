@@ -11,12 +11,12 @@ namespace KID
 
         public void ResetToLv1()
         {
-            throw new System.NotImplementedException();
+            dataSkill.lv = 1;
+            dataPlayer.speed = dataSkill.skillValues[0];
         }
 
         public void UpgradeSkill()
         {
-            print("升級跑步速度");
             int lv = dataSkill.lv;
             dataPlayer.speed = dataSkill.skillValues[lv - 1];
         }

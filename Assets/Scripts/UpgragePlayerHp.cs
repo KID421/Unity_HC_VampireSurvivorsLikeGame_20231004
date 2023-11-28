@@ -13,12 +13,12 @@ namespace KID
 
         public void ResetToLv1()
         {
-            throw new System.NotImplementedException();
+            dataSkill.lv = 1;
+            dataPlayer.hp = dataSkill.skillValues[0];
         }
 
         public void UpgradeSkill()
         {
-            print("升級玩家血量");
             int lv = dataSkill.lv;
             dataPlayer.hp = dataSkill.skillValues[lv - 1];
             damagePlayer.UpgradeAndRecoverHp();
