@@ -14,7 +14,7 @@ namespace KID
 
         private void Awake()
         {
-            InvokeRepeating("SpawnEnemy", 0, interval);
+            // InvokeRepeating("SpawnEnemy", 0, interval);
         }
 
         /// <summary>
@@ -23,6 +23,27 @@ namespace KID
         private void SpawnEnemy()
         {
             Instantiate(prefabEnemy, transform.position, Quaternion.identity);
+        }
+
+        /// <summary>
+        /// 重新開始生成：有改過生成物件與間隔後要重新開始
+        /// </summary>
+        /// <param name="_interval">要變更的生成間隔時間</param>
+        /// <param name="_prefabEnemy">要變更的生成預製物</param>
+        public void RestartSpawn(float _interval, GameObject _prefabEnemy)
+        {
+            interval = _interval;
+            prefabEnemy = _prefabEnemy;
+            CancelInvoke("SpawnEnemy");
+            InvokeRepeating("SpawnEnemy", 0, interval);
+        }
+
+        /// <summary>
+        /// 停止生成
+        /// </summary>
+        public void StopSpawn()
+        {
+            CancelInvoke("SpawnEnemy");
         }
     }
 }

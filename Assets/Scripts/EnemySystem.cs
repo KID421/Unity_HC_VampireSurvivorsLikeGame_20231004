@@ -10,7 +10,7 @@ namespace KID
     {
         #region 資料
         [SerializeField, Header("角色資料")]
-        private DataEnemy data;
+        protected DataEnemy data;
         [SerializeField, Header("攻擊範圍位移")]
         private Vector3 attackRangeOffset;
 
@@ -25,7 +25,7 @@ namespace KID
         #endregion
 
         #region 事件
-        private void Awake()
+        protected virtual void Awake()
         {
             pointPlayer = GameObject.Find(namePlayer).transform;
             damagePlayer = pointPlayer.GetComponent<DamagePlayer>();
@@ -72,10 +72,20 @@ namespace KID
             ani.SetTrigger(parAttack);
             ani.SetBool(parIdle, true);
             yield return new WaitForSeconds(data.attackSendTime);
-            damagePlayer.Damage(data.attack);
+
+            AttackPlayerMethod();
+
             yield return new WaitForSeconds(data.attackEndWaitTime);
             canAttack = true;
             attacking = false;
+        }
+
+        /// <summary>
+        /// 攻擊玩家的方式
+        /// </summary>
+        protected virtual void AttackPlayerMethod()
+        {
+            if (Vector2.Distance(transform.position, pointPlayer.position) < data.attackRange) damagePlayer.Damage(data.attack);
         }
 
         /// <summary>

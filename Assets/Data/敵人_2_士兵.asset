@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b68052e28bd7af74b850443b9fae795d, type: 3}
+  m_Name: "\u6575\u4EBA_2_\u58EB\u5175"
+  m_EditorClassIdentifier: 
+  hp: 500
+  speed: 1.8
+  expProbability: 0.75
+  expPrefab: {fileID: 7939459227215802989, guid: 9186a4bd765fae2429e9652da146d833,
+    type: 3}
+  attack: 70
+  attackRange: 1.8
+  attackSendTime: 0.4
+  attackEndWaitTime: 1.95

@@ -26,8 +26,36 @@ namespace KID
             for (int i = 0; i < dataSpawnEnemys.Length; i++)
             {
                 print($"<color=#f69>波數：{ i + 1 }</color>");
+                ChangeSpawnData(dataSpawnEnemys[i]);
                 float duration = dataSpawnEnemys[i].spawnDuration;
                 yield return new WaitForSeconds(duration);
+            }
+
+            yield return null;
+            StopSpwan();
+        }
+
+        /// <summary>
+        /// 變更要生成的資料
+        /// </summary>
+        /// <param name="dataSpawnEnemy">該波數的資料</param>
+        private void ChangeSpawnData(DataSpawnEnemy dataSpawnEnemy)
+        {
+            for (int i = 0; i < spawnEnemySystems.Length; i++)
+            {
+                spawnEnemySystems[i].RestartSpawn(
+                    dataSpawnEnemy.interval, dataSpawnEnemy.prefabEnemy);
+            }
+        }
+
+        /// <summary>
+        /// 停止生成
+        /// </summary>
+        private void StopSpwan()
+        {
+            for (int i = 0; i < spawnEnemySystems.Length; i++)
+            {
+                spawnEnemySystems[i].StopSpawn();
             }
         }
     }
