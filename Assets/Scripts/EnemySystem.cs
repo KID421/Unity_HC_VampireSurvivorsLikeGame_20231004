@@ -32,7 +32,7 @@ namespace KID
             ani = GetComponent<Animator>();
         }
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             Gizmos.color = new Color(0.3f, 0.3f, 0.8f, 0.5f);
             Gizmos.DrawSphere(transform.position + attackRangeOffset, data.attackRange);

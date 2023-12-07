@@ -9,5 +9,10 @@ namespace KID
     {
         [HideInInspector]
         public float attack;
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            Destroy(gameObject);
+        }
     }
 }

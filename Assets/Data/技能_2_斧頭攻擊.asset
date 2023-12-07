@@ -14,13 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u65A7\u982D\u653B\u64CA"
   skillPicture: {fileID: 21300000, guid: ad679ee9a9fe39e4a8119cddbb1d9e7d, type: 3}
-  skillDescription: "\u5F37\u5316\u65A7\u982D\u653B\u64CA\uFF0C\u9810\u8A2D\u70BA
-    30\uFF0C\u6BCF\u500B\u7B49\u7D1A\u63D0\u5347 30 \u653B\u64CA\u529B\u3002"
-  lv: 2
+  skillDescription: "\u5F37\u5316\u65A7\u982D\u653B\u64CA\uFF0C\u96A8\u8457\u7B49\u7D1A\u63D0\u5347\u3002"
+  lv: 1
   skillValues:
-  - 30
-  - 60
-  - 90
-  - 120
-  - 150
+  - 50000
+  - 100
+  - 200
+  - 500
+  - 1000
   upgradeSkillSystem: "\u5347\u7D1A\u65A7\u982D\u653B\u64CA"

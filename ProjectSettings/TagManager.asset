@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - "\u5347\u7D1A\u6280\u80FD\u7269\u4EF6"
+  - Laser
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - "\u6575\u4EBA"
   - "\u6B66\u5668"
   - "\u7D93\u9A57\u503C"
-  - "\u6575\u4EBA\u653B\u64CA\u7279\u6548"
+  - "\u6575\u4EBA\u6B66\u5668"
   - 
   - 
   - 

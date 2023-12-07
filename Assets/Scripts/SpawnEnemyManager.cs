@@ -41,6 +41,17 @@ namespace KID
         /// <param name="dataSpawnEnemy">該波數的資料</param>
         private void ChangeSpawnData(DataSpawnEnemy dataSpawnEnemy)
         {
+            // 如果是 BOSS 波
+            if (dataSpawnEnemy.isBoss)
+            {
+                // 隨機取一個生成點
+                int randomIndex = Random.Range(0, spawnEnemySystems.Length);
+                // 呼叫該生成點的重新生成
+                spawnEnemySystems[randomIndex].RestartSpawn(
+                    dataSpawnEnemy.interval, dataSpawnEnemy.prefabEnemy);
+                return;
+            }
+
             for (int i = 0; i < spawnEnemySystems.Length; i++)
             {
                 spawnEnemySystems[i].RestartSpawn(

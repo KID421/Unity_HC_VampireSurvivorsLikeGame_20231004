@@ -137,6 +137,12 @@ namespace KID
                 transformSkills[i].Find("技能圖片").GetComponent<Image>().sprite = dataSkill.skillPicture;
                 transformSkills[i].Find("技能描述底圖/技能描述").GetComponent<TextMeshProUGUI>().text = dataSkill.skillDescription;
 
+                // 關閉所有星星的透明度，避免殘留上次升級後的星星
+                for (int j = 0; j < 5; j++)
+                {
+                    transformSkills[i].Find($"等級底圖/星星/星星 {(j + 1)}").GetComponent<Image>().color = new Color(1, 1, 1, 0);
+                }
+
                 for (int j = 0; j < dataSkill.lv; j++)
                 {
                     transformSkills[i].Find($"等級底圖/星星/星星 {(j + 1)}").GetComponent<Image>().color = Color.white;

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   speed: 2
-  expProbability: 0.6
+  expProbability: 0.8
   expPrefab: {fileID: 5598794372613792981, guid: 625a54f1ac61d86479495116a75d8baf,
     type: 3}
-  attack: 30
+  attack: 20
   attackRange: 1.5
   attackSendTime: 0.4
   attackEndWaitTime: 1.8
