@@ -25,7 +25,7 @@ namespace KID
         {
             for (int i = 0; i < dataSpawnEnemys.Length; i++)
             {
-                print($"<color=#f69>波數：{ i + 1 }</color>");
+                // print($"<color=#f69>波數：{ i + 1 }</color>");
                 ChangeSpawnData(dataSpawnEnemys[i]);
                 float duration = dataSpawnEnemys[i].spawnDuration;
                 yield return new WaitForSeconds(duration);

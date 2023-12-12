@@ -85,7 +85,7 @@ namespace KID
         /// </summary>
         protected virtual void AttackPlayerMethod()
         {
-            if (Vector2.Distance(transform.position, pointPlayer.position) < data.attackRange) damagePlayer.Damage(data.attack);
+            if (Vector2.Distance(transform.position + attackRangeOffset, pointPlayer.position) < data.attackRange) damagePlayer.Damage(data.attack);
         }
 
         /// <summary>

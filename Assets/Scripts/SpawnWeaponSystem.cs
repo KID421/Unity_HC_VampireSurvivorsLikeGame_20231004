@@ -34,8 +34,10 @@ namespace KID
         {
             SoundManager.instance.PlaySound(soundThrowWeapon, 1.2f, 2.2f);
             GameObject tempWeapon = Instantiate(prefabWeapon, transform.position, Quaternion.identity);
-            tempWeapon.GetComponent<Rigidbody2D>().AddForce(transform.root.right * firePower.x + transform.root.up * firePower.y);
             tempWeapon.GetComponent<RotateObject>().direction = -(int)transform.root.right.x;
+            float direction = transform.root.eulerAngles.y == 0 ? 1 : -1;
+            Vector3 fire = new Vector2(firePower.x * direction, firePower.y);
+            tempWeapon.GetComponent<ConstantForce2D>().force = fire;
         }
 
         /// <summary>

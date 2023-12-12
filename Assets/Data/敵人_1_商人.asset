@@ -18,6 +18,6 @@ MonoBehaviour:
   expPrefab: {fileID: 5598794372613792981, guid: 625a54f1ac61d86479495116a75d8baf,
     type: 3}
   attack: 20
-  attackRange: 1.5
+  attackRange: 2.2
   attackSendTime: 0.4
   attackEndWaitTime: 1.8

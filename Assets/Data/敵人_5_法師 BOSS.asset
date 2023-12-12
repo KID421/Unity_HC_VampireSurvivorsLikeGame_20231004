@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68052e28bd7af74b850443b9fae795d, type: 3}
   m_Name: "\u6575\u4EBA_5_\u6CD5\u5E2B BOSS"
   m_EditorClassIdentifier: 
-  hp: 5000
+  hp: 10000
   speed: 2
   expProbability: 0
   expPrefab: {fileID: 868704760971887303, guid: 7a050e9e376b36e4eae5c5795d2dd536,

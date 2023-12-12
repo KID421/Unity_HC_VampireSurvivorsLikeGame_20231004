@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68052e28bd7af74b850443b9fae795d, type: 3}
   m_Name: "\u6575\u4EBA_3_\u76DC\u8CCA"
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 700
   speed: 5
-  expProbability: 0.9
+  expProbability: 0.85
   expPrefab: {fileID: 868704760971887303, guid: 7a050e9e376b36e4eae5c5795d2dd536,
     type: 3}
-  attack: 250
+  attack: 500
   attackRange: 2
   attackSendTime: 0.4
   attackEndWaitTime: 1.3

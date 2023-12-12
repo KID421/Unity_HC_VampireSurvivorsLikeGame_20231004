@@ -10,6 +10,7 @@ namespace KID
     /// <summary>
     /// 技能管理器
     /// </summary>
+    [DefaultExecutionOrder(0)]
     public class SkillManager : MonoBehaviour
     {
         public static SkillManager instance;
@@ -40,6 +41,11 @@ namespace KID
             for (int i = 0; i < 3; i++)
             {
                 transformSkills[i] = GameObject.Find($"技能 {(i + 1)}").transform;
+            }
+
+            for (int i = 0; i < dataSkills.Length; i++)
+            {
+                dataSkills[i].FindObject();
             }
 
             ButtonClickAndUpgradeSkill();

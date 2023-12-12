@@ -26,7 +26,7 @@ namespace KID
         /// <summary>
         /// 尋找物件
         /// </summary>
-        private void FindObject()
+        public void FindObject()
         {
             upgradeSkill = GameObject.Find(upgradeSkillSystem).GetComponent<IUpgradeSkill>();
         }
