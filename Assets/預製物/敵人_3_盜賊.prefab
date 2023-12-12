@@ -234,6 +234,8 @@ MonoBehaviour:
   prefabDamage: {fileID: 4561790540368056737, guid: fd1c89346574eb74aa2cef6aa8f19fa1,
     type: 3}
   damageOffset: {x: 0, y: 1, z: 0}
+  soundDamage: {fileID: 8300000, guid: 3caffab629660ab4f94329fd8f374431, type: 3}
+  soundDead: {fileID: 8300000, guid: fcf43de406bc94246a87c3a8cad707f7, type: 3}
 --- !u!1 &4446635517992041544
 GameObject:
   m_ObjectHideFlags: 0

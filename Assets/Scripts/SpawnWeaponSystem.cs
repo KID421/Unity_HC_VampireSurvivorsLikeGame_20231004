@@ -11,6 +11,8 @@ namespace KID
         private GameObject prefabWeapon;
         [SerializeField, Header("發射力道")]
         private Vector2 firePower;
+        [SerializeField, Header("丟武器音效")]
+        private AudioClip soundThrowWeapon;
 
         [HideInInspector]
         public float interval = 3;
@@ -30,6 +32,7 @@ namespace KID
         /// </summary>
         private void SpawnWeapon()
         {
+            SoundManager.instance.PlaySound(soundThrowWeapon, 1.2f, 2.2f);
             GameObject tempWeapon = Instantiate(prefabWeapon, transform.position, Quaternion.identity);
             tempWeapon.GetComponent<Rigidbody2D>().AddForce(transform.root.right * firePower.x + transform.root.up * firePower.y);
             tempWeapon.GetComponent<RotateObject>().direction = -(int)transform.root.right.x;

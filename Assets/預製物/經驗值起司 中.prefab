@@ -136,3 +136,4 @@ MonoBehaviour:
   speed: 3.5
   eatDistance: 2
   exp: 100
+  soundEatExp: {fileID: 8300000, guid: 526e9f6251acf11469bfb21b0c084c7a, type: 3}

@@ -18,6 +18,8 @@ namespace KID
         private DataSkill[] dataSkills;
         [SerializeField, Header("升級技能按鈕")]
         private Button[] btnSkillUpgrade;
+        [SerializeField, Header("音效升級技能")]
+        private AudioClip soundUpgradeSkill;
 
         private List<DataSkill> randomSkills = new List<DataSkill>();
 
@@ -79,6 +81,7 @@ namespace KID
         /// <returns></returns>
         private IEnumerator UpgradeSkillFlow()
         {
+            SoundManager.instance.PlaySound(soundUpgradeSkill, 1.5f, 2.5f);
             groupSkill.interactable = false;
             yield return new WaitForSecondsRealtime(0.3f);
             UpdateSkillUI();

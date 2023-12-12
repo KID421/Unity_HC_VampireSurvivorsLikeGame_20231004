@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: "\u6575\u4EBA_1_\u5546\u4EBA"
   m_EditorClassIdentifier: 
   hp: 100
-  speed: 2
-  expProbability: 0.8
+  speed: 1.5
+  expProbability: 1
   expPrefab: {fileID: 5598794372613792981, guid: 625a54f1ac61d86479495116a75d8baf,
     type: 3}
   attack: 20

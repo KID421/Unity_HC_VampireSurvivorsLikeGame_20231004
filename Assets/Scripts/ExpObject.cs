@@ -13,6 +13,8 @@ namespace KID
         private float eatDistance = 1.5f;
         [SerializeField, Header("經驗值"), Range(0, 1000)]
         private float exp = 30;
+        [SerializeField, Header("吃經驗音效")]
+        private AudioClip soundEatExp;
 
         private Transform pointPlayer;
         private string namePlayer = "女學生";
@@ -49,6 +51,7 @@ namespace KID
             if (dis <= eatDistance)
             {
                 LevelManager.instance.AddExp(exp);
+                SoundManager.instance.PlaySound(soundEatExp, 1.5f, 2.3f);
                 Destroy(gameObject);
             }
         }

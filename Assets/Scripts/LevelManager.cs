@@ -20,6 +20,8 @@ namespace KID
         private float expNeed = 100;
         private int lvMax = 100;
 
+        [SerializeField, Header("音效升級")]
+        private AudioClip soundLevelUp;
         [SerializeField, Header("經驗值需求表")]
         private float[] expNeeds;
 
@@ -58,6 +60,7 @@ namespace KID
             imgExp.fillAmount = expCurrent / expNeed;
             textExp.text = $"{expCurrent} / {expNeed}";
             SkillManager.instance.StartFadeInGroupSkill();
+            SoundManager.instance.PlaySound(soundLevelUp);
         }
 
         /// <summary>
