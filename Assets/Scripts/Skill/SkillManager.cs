@@ -21,6 +21,8 @@ namespace KID
         private Button[] btnSkillUpgrade;
         [SerializeField, Header("音效升級技能")]
         private AudioClip soundUpgradeSkill;
+        [SerializeField, Header("關閉技能介面")]
+        private Button btnCloseSkill;
 
         private List<DataSkill> randomSkills = new List<DataSkill>();
 
@@ -37,6 +39,11 @@ namespace KID
         {
             instance = this;
             groupSkill = GameObject.Find("技能介面").GetComponent<CanvasGroup>();
+            btnCloseSkill.onClick.AddListener(() =>
+            {
+                StartCoroutine(FadeGroupSkill(false));
+                Time.timeScale = 1;
+            });
 
             for (int i = 0; i < 3; i++)
             {
@@ -141,6 +148,14 @@ namespace KID
         {
             for (int i = 0; i < 3; i++)
             {
+                if (i == randomSkills.Count)
+                {
+                    transformSkills[i].gameObject.SetActive(false);
+                    if (randomSkills.Count == 0) btnCloseSkill.gameObject.SetActive(true);
+
+                    return;
+                }
+
                 DataSkill dataSkill = randomSkills[i];
                 transformSkills[i].Find("技能名稱").GetComponent<TextMeshProUGUI>().text = dataSkill.skillName;
                 transformSkills[i].Find("技能圖片").GetComponent<Image>().sprite = dataSkill.skillPicture;

@@ -51,7 +51,7 @@ namespace KID
             if (dis <= eatDistance)
             {
                 LevelManager.instance.AddExp(exp);
-                SoundManager.instance.PlaySound(soundEatExp, 1.5f, 2.3f);
+                SoundManager.instance.PlaySound(soundEatExp, 0.6f, 1.2f);
                 Destroy(gameObject);
             }
         }
